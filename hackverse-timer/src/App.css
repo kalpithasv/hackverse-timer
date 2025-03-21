@@ -11,6 +11,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative; /* Keeps elements positioned correctly */
 }
 
 
@@ -28,6 +29,7 @@
   text-align: center;
   width: fit-content;
   margin-top: 100px; /* Moves it down */
+  transform: translateY(-50%); /* Ensures it stays centered */
 }
 
 .timer-text {
