@@ -1,0 +1,30 @@
+/* Set background image */
+body {
+  margin: 0;
+  padding: 0;
+  background: url("../public/assets/hackverse-bg.png") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* Center container */
+.container {
+  text-align: center;
+}
+
+/* Style logo */
+.logo {
+  width: 150px; /* Adjust logo size */
+  margin-bottom: 20px;
+}
+
+/* Timer styling */
+.timer {
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+}

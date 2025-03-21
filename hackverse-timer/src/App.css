@@ -1,0 +1,72 @@
+/* Make background image full screen */
+.container {
+  position: fixed;  /* Ensure full screen */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.start-button {
+  font-size: 48px;  /* Bigger text */
+  font-weight: bold;
+  color: #e54109;
+  background-color: black;
+  padding: 20px 40px; /* Bigger button */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  margin-top: 35px; /* Space between timer and button */
+  display: block;
+  width: 210px; /* Fixed width */
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.start-button:hover {
+  background-color: #222; /* Slightly lighter black */
+}
+
+
+/* Style for countdown timer */
+.timer-overlay {
+  font-size: 14rem; /* Large text */
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 40px 150px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90vw; /* Ensures it doesn’t overflow */
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .timer-overlay {
+    font-size: 6rem;
+    padding: 20px 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timer-overlay {
+    font-size: 4rem;
+    padding: 15px 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timer-overlay {
+    font-size: 2rem;
+    padding: 10px 20px;
+  }
+}
