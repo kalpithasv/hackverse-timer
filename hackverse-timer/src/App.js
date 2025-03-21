@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import bgImage from "./assets/hackverse-bg.png"; // Import your background image
+import bgImage from "./assets/hackverse-bg.png";
 
 const App = () => {
-  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24-hour countdown in seconds
-  const [isRunning, setIsRunning] = useState(false); // Track whether the timer is running
+  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24-hour countdown
+  const [isRunning, setIsRunning] = useState(false); // Track timer state
 
   useEffect(() => {
-    if (!isRunning || timeLeft <= 0) return; // Stop timer if not running or reached 00:00:00
+    if (!isRunning || timeLeft <= 0) return; // Don't run if not started
 
     const timer = setInterval(() => {
       setTimeLeft((prevTime) => prevTime - 1);
@@ -16,7 +16,10 @@ const App = () => {
     return () => clearInterval(timer);
   }, [isRunning, timeLeft]);
 
-  // Function to format time into HH:MM:SS
+  const startTimer = () => {
+    setIsRunning(true);
+  };
+
   const formatTime = (seconds) => {
     const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
     const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
@@ -26,14 +29,19 @@ const App = () => {
 
   return (
     <div className="container" style={{ backgroundImage: `url(${bgImage})` }}>
-      <div className="timer-wrapper">
-        <div className="timer-overlay">{formatTime(timeLeft)}</div>
-        <button className="start-button" onClick={() => setIsRunning(true)}>Start</button>
+      <div className="content">
+        <div className="timer-box">
+          <div className="timer-text">{formatTime(timeLeft)}</div>
+        </div>
+  
+        {!isRunning && (
+          <button className="start-button" onClick={startTimer}>
+            Start
+          </button>
+        )}
       </div>
     </div>
   );
-  
-  
   
 };
 
