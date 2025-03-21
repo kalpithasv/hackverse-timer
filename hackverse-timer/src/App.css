@@ -13,22 +13,7 @@
   background-repeat: no-repeat;
 }
 
-.start-button {
-  font-size: 48px;  /* Bigger text */
-  font-weight: bold;
-  color: #e54109;
-  background-color: black;
-  padding: 20px 40px; /* Bigger button */
-  border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  margin-top: 35px; /* Space between timer and button */
-  display: block;
-  width: 210px; /* Fixed width */
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 
 .start-button:hover {
@@ -38,17 +23,31 @@
 
 /* Style for countdown timer */
 .timer-overlay {
-  font-size: 14rem; /* Large text */
+  font-size: 5vw; /* Responsive font size */
   font-weight: bold;
-  color: white;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 40px 150px;
-  border-radius: 10px;
   text-align: center;
-  max-width: 90vw; /* Ensures it doesn’t overflow */
+  color: white;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Keep "hrs" in the same line */
+  padding: 20px;
 }
+
+.start-button {
+  font-size: 20px; /* Reduce font size slightly */
+  font-weight: bold;
+  color: orange;
+  background-color: black;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 30px; /* Increase spacing from timer */
+  width: 200px;
+  text-align: center;
+}
+
 
 @media (max-width: 1024px) {
   .timer-overlay {
