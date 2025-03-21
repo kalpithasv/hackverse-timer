@@ -41,12 +41,12 @@
   font-weight: bold;
   color: #e5410a;
   background-color: black;
-  padding: 40px 40px;
+  padding: 20px 20px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   margin-top: 40px; /* Add spacing between timer and button */
-  width: 250px;
+  width: 200px;
   text-align: center;
 }
 
