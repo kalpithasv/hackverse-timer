@@ -24,16 +24,29 @@ const App = () => {
     const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
     const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, "0");
     const secs = String(seconds % 60).padStart(2, "0");
-    return `${hours}:${minutes}:${secs} hrs`;
+    return { hours, minutes, secs };
   };
+
+  const { hours, minutes, secs } = formatTime(timeLeft);
 
   return (
     <div className="container" style={{ backgroundImage: `url(${bgImage})` }}>
       <div className="content">
-        <div className="timer-box">
-          <div className="timer-text">{formatTime(timeLeft)}</div>
+        <div className="timer-container">
+          <div className="time-box">
+            <span className="time-value">{hours}</span>
+            <span className="time-label">Hours</span>
+          </div>
+          <div className="time-box">
+            <span className="time-value">{minutes}</span>
+            <span className="time-label">Minutes</span>
+          </div>
+          <div className="time-box">
+            <span className="time-value">{secs}</span>
+            <span className="time-label">Seconds</span>
+          </div>
         </div>
-  
+
         {!isRunning && (
           <button className="start-button" onClick={startTimer}>
             Start
@@ -42,7 +55,6 @@ const App = () => {
       </div>
     </div>
   );
-  
 };
 
-export default App;
+export default App;     
