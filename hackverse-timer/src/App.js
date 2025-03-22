@@ -7,10 +7,12 @@ const App = () => {
   const [timeLeft, setTimeLeft] = useState(
     Math.max(0, Math.floor((targetTime - Date.now()) / 1000))
   ); // Calculate initial time left in seconds
-  const [isRunning, setIsRunning] = useState(true); // Timer starts running immediately
 
   useEffect(() => {
-    if (timeLeft <= 0) return; // Stop if time is up
+    if (timeLeft <= 0) {
+      alert("Hackathon is Over"); // Show popup when time is up
+      return;
+    }
 
     const timer = setInterval(() => {
       setTimeLeft(Math.max(0, Math.floor((targetTime - Date.now()) / 1000)));
