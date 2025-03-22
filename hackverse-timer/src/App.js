@@ -3,22 +3,21 @@ import "./App.css";
 import bgImage from "./assets/hackverse-bg.png";
 
 const App = () => {
-  const [timeLeft, setTimeLeft] = useState(24 * 60 * 60); // 24-hour countdown
-  const [isRunning, setIsRunning] = useState(false); // Track timer state
+  const targetTime = new Date("2025-03-23T05:30:00Z").getTime(); // March 23, 11:00 AM IST in UTC
+  const [timeLeft, setTimeLeft] = useState(
+    Math.max(0, Math.floor((targetTime - Date.now()) / 1000))
+  ); // Calculate initial time left in seconds
+  const [isRunning, setIsRunning] = useState(true); // Timer starts running immediately
 
   useEffect(() => {
-    if (!isRunning || timeLeft <= 0) return; // Don't run if not started
+    if (timeLeft <= 0) return; // Stop if time is up
 
     const timer = setInterval(() => {
-      setTimeLeft((prevTime) => prevTime - 1);
+      setTimeLeft(Math.max(0, Math.floor((targetTime - Date.now()) / 1000)));
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [isRunning, timeLeft]);
-
-  const startTimer = () => {
-    setIsRunning(true);
-  };
+  }, [timeLeft, targetTime]);
 
   const formatTime = (seconds) => {
     const hours = String(Math.floor(seconds / 3600)).padStart(2, "0");
@@ -47,14 +46,10 @@ const App = () => {
           </div>
         </div>
 
-        {!isRunning && (
-          <button className="start-button" onClick={startTimer}>
-            Start
-          </button>
-        )}
+        {timeLeft <= 0 && <div className="end-message">Time's up!</div>}
       </div>
     </div>
   );
 };
 
-export default App;     
+export default App;
